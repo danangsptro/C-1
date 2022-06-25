@@ -132,6 +132,14 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+    <div class="sidebar-heading">
+        Register Pegawai
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('register-pegawai')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Register Akun</span></a>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
