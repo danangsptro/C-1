@@ -21,7 +21,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Earnings (Monthly)</div>
+                                    Data Pasangan</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                             </div>
                             <div class="col-auto">
@@ -39,7 +39,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)</div>
+                                    Data Pernikahan</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                             </div>
                             <div class="col-auto">
@@ -56,7 +56,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Data Arsip Pernikahan
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
@@ -85,7 +85,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Pending Requests</div>
+                                    Laporan Pernikahan</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                             </div>
                             <div class="col-auto">
@@ -177,7 +177,7 @@
         <div class="row">
 
             <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
+            {{-- <div class="col-lg-6 mb-4">
 
                 <!-- Project Card Example -->
                 <div class="card shadow mb-4">
@@ -282,9 +282,9 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
-            <div class="col-lg-6 mb-4">
+            {{-- <div class="col-lg-6 mb-4">
 
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
@@ -319,7 +319,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
         </div>
 
     </div>
