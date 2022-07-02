@@ -10,7 +10,7 @@
         <hr>
         <a href="{{ route('data-pasangan-create') }}" class="btn btn-primary btn-icon-split mb-4">
             <span class="icon text-white-50">
-                <i class="fas fa-flag"></i>
+                <i class="menu-icon fa fa-plus-square"></i>
             </span>
             <span class="text">Create Pasangan</span>
         </a>
@@ -40,7 +40,7 @@
                                     <td>{{ $item->status_pernikahan }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-info btn-circle">
-                                            <i class="fas fa-info-circle"></i>
+                                            <i class="fas fa-pen"></i>
                                         </a>
 
                                         <form action="{{ route('data-pasangan-delete', $item->id) }}" class="d-inline" method="POST">

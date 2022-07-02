@@ -30,5 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('data/arsip-pernikahan', 'Backend\dataArsipPernikahanController@index')->name('data-arsip-pernikahan');
         // Register Pegawai
         Route::get('register-pegawai', 'Backend\registerPegawaiController@index')->name('register-pegawai');
+        Route::delete('register-pegawai-delete/{id}', 'Backend\registerPegawaiController@delete')->name('register-pegawai-delete');
+        Route::post('register-pegawai-store', 'Backend\registerPegawaiController@store')->name('register-pegawai-store');
     });
 });

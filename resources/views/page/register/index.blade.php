@@ -10,7 +10,7 @@
         <hr>
         <button class="btn btn-primary btn-icon-split mb-4" data-toggle="modal" data-target="#exampleModal">
             <span class="icon text-white-50">
-                <i class="menu-icon fa  fa-plus-square"></i>
+                <i class="menu-icon fa fa-plus-square"></i>
             </span>
             <span class="text">Register Pegawai</span>
         </button>
@@ -27,15 +27,23 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="POST">
+                        <form action="{{ route('register-pegawai-store') }}" method="POST">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-lg-6">
-                                    <label for="name">Username</label>
+                                    <label for="name">Name</label>
                                     <input type="text" name="name"
                                         class="form-control @error('name') ins-invalid @enderror"
                                         value="{{ old('name') }}" required>
                                 </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username"
+                                        class="form-control @error('username') ins-invalid @enderror"
+                                        value="{{ old('username') }}" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
                                 <div class="form-group col-lg-6">
                                     <label>User Role</label>
                                     <select class="custom-select" id="inputGroupSelect01" name="user_role">
@@ -44,17 +52,26 @@
                                         <option value="penghulu">Penghulu</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email"
+                                        class="form-control @error('email') ins-invalid @enderror"
+                                        value="{{ old('email') }}" required>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-lg-12">
                                     <label for="password">Password</label>
                                     <input type="text" class="form-control" name="password"
-                                        @error('password') ins-invalid @enderror  required>
+                                        @error('password') ins-invalid @enderror required>
+
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-row">
                                 <div class="form-group col-lg-12">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                    <button class="btn btn-primary" type="submit"
+                                        onclick="return confirm('Data Sudah Benar ?')">Simpan</button>
                                 </div>
                             </div>
                         </form>
@@ -73,8 +90,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Name</th>
+                                <th>Email</th>
                                 <th>Username</th>
-                                <th>Password</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -82,15 +100,22 @@
                             @foreach ($data as $q)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $q->name }}</td>
                                     <td>{{ $q->email }}</td>
-                                    <td>{{ $q->password }}</td>
+                                    <td>{{ $q->username }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-danger btn-circle">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
                                         <a href="#" class="btn btn-info btn-circle">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
+                                        <form action="{{ route('register-pegawai-delete', $q->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-circle"
+                                                onclick="return confirm('ANDA YAKIN INGIN MENGHAPUS ?')"></a>
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
