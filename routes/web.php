@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('data/delete-pasangan/{id}', 'backend\dataPasanganController@delete')->name('data-pasangan-delete');
         // Data Jadwal Pasangan
         Route::get('/data/jadwal-pasangan', 'Backend\dataJadwalPernikahanController@index')->name('data-jadwal-pasangan');
+        Route::get('/data/create-jadwal-pernikahan', 'Backend\dataJadwalPernikahanController@create')->name('data-create-jadwal-pasangan');
+        Route::post('/data/store-jadwal-pernikahan', 'Backend\dataJadwalPernikahanController@store')->name('data-store-jadwal-pernikahan');
+        Route::delete('/data/delete-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@delete')->name('data-delete-jadwal-pernikahan');
         // Data Pernikahan
         Route::get('data/pernikahan', 'Backend\dataPernikahanController@index')->name('data-pernikahan');
         // Data Arsip Pernikahan

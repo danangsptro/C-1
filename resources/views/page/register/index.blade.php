@@ -90,6 +90,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Pegawai</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Username</th>
@@ -100,6 +101,15 @@
                             @foreach ($data as $q)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        @if ($q->user_role === 'pegawai')
+                                            <span class="badge badge-warning">{{ $q->user_role }}
+                                            </span>
+                                        @else
+                                            <span class="badge badge-success">{{ $q->user_role }}
+                                            </span>
+                                        @endif
+                                    </td>
                                     <td>{{ $q->name }}</td>
                                     <td>{{ $q->email }}</td>
                                     <td>{{ $q->username }}</td>
