@@ -97,32 +97,36 @@
     </li> --}}
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('data-penghulu') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Data Penghulu</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('data-pasangan') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Data Pasangan</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('data-jadwal-pasangan') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Data Jadwal Pasangan</span></a>
-    </li>
+    @if (Auth::user()->user_role === 'pegawai')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-penghulu') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Penghulu</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-pasangan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Pasangan</span></a>
+        </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('data-pernikahan')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Data Pernikahan</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('data-arsip-pernikahan')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Data Arsip Pernikahan</span></a>
-    </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-pernikahan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Pernikahan</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-arsip-pernikahan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Arsip Pernikahan</span></a>
+        </li>
+    @elseif(Auth::user()->user_role === 'penghulu')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-jadwal-pasangan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Jadwal Pasangan</span></a>
+        </li>
+    @endif
 
     {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
@@ -132,14 +136,17 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-    <div class="sidebar-heading">
-        Register Pegawai
-    </div>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('register-pegawai')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Register Akun</span></a>
-    </li>
+
+    @if (Auth::useR()->user_role === 'pegawai')
+        <div class="sidebar-heading">
+            Register Pegawai
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register-pegawai') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Register Akun</span></a>
+        </li>
+    @endif
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
