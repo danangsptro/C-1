@@ -16,12 +16,15 @@ class CreateDataJadwalPernikahansTable extends Migration
         Schema::create('data_jadwal_pernikahans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('pasangan_id')->unsigned();
             $table->date('tanggal_pernikahan');
             $table->string('jam_pernikahan');
             $table->string('tempat');
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pasangan_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

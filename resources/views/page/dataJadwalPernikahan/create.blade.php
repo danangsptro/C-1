@@ -35,7 +35,28 @@
                                             @endif
                                         @endforeach
                                     </select>
-                                    @error('kelas_id')
+                                    @error('user_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Nama Pasangan</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01" name="pasangan_id">
+                                        <option selected>Pilih Option</option>
+                                        @foreach ($pasangan as $item)
+                                            <option value="{{ $item->id }}" class="text-bold">
+                                                <strong>Pria :</strong> {{ $item->nama_pria }} - <strong>Wanita : </strong>{{$item->nama_wanita}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('pasangan_id')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -66,6 +87,11 @@
                                 @error('tempat')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6 disabled">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="status" value="Rejected" required>
                             </div>
                         </div>
                     </div>

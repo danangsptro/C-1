@@ -29,7 +29,8 @@
                                 <th>Tanggal Pernikahan</th>
                                 <th>Jam Pernikahan</th>
                                 <th>Tempat</th>
-                                <th>Action</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,19 +41,44 @@
                                     <td>{{ $item->tanggal_pernikahan }}</td>
                                     <td>{{ $item->jam_pernikahan }}</td>
                                     <td>{{ $item->tempat }}</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-
-                                        <form action="{{ route('data-delete-jadwal-pernikahan', $item->id) }}" class="d-inline" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-danger btn-circle" onclick="return confirm('ANDA YAKIN INGIN MENGHAPUS ?')">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
+                                    <td class=" text-center">
+                                        @if ($item->status === 'Rejected')
+                                            <strong class="text-danger">{{ $item->status }}</strong>
+                                        @else
+                                            <strong class="text-success">{{ $item->status }}</strong>
+                                        @endif
                                     </td>
+                                    <td class="text-center">
+
+                                        @if (Auth::user()->user_role === 'pegawai')
+                                            @if ($item->status === 'Rejected')
+                                                <a href="#" class="btn btn-info btn-circle">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+
+                                                <form action="{{ route('data-delete-jadwal-pernikahan', $item->id) }}"
+                                                    class="d-inline" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-danger btn-circle"
+                                                        onclick="return confirm('ANDA YAKIN INGIN MENGHAPUS ?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @else
+                                                -
+                                            @endif
+                                        @else
+                                            @if ($item->status === 'Rejected')
+                                                <a href="#" class="btn btn-success">
+                                                    <i class="fas fa-check"></i> Approve
+                                                </a>
+                                            @else
+                                                -
+                                            @endif
+                                        @endif
+                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>

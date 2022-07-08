@@ -120,6 +120,11 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Arsip Pernikahan</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-jadwal-pasangan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Jadwal Pasangan</span></a>
+        </li>
     @elseif(Auth::user()->user_role === 'penghulu')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('data-jadwal-pasangan') }}">
@@ -137,7 +142,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    @if (Auth::useR()->user_role === 'pegawai')
+    @if (Auth::user()->user_role === 'pegawai')
         <div class="sidebar-heading">
             Register Pegawai
         </div>
