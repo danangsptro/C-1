@@ -40,6 +40,36 @@ class dataPasanganController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data = dataPasangan::find($id);
+        return view('page.dataPasangan.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'nama_pria' => 'required|max:20',
+            'nama_wanita' => 'required|max:20',
+            'status_pernikahan' => 'required|max:20',
+        ]);
+
+        $id = $request->id;
+        $update = dataPasangan::find($id);
+        $update->nama_pria = $validate['nama_pria'];
+        $update->nama_wanita = $validate['nama_wanita'];
+        $update->status_pernikahan = $validate['status_pernikahan'];
+        $update->save();
+
+        if (!$update) {
+            toastr()->error('Data has been not edit');
+            return redirect('/dashboard/data/pasangan');
+        } else {
+            toastr()->success('Data has been edit successfully!');
+            return redirect('/dashboard/data/pasangan');
+        }
+    }
+
     public function delete($id)
     {
         if (!$id) {

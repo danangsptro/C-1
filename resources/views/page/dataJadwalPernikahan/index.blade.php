@@ -8,12 +8,14 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800 text-center mb-4 mt-4">Data Jadwal Pernikahan</h1>
         <hr>
-        <a href="{{ route('data-create-jadwal-pasangan') }}" class="btn btn-primary btn-icon-split mb-4">
-            <span class="icon text-white-50">
-                <i class="menu-icon fa fa-plus-square"></i>
-            </span>
-            <span class="text">Create Jadwal Pernikahan</span>
-        </a>
+        @if (Auth::user()->user_role === 'pegawai')
+            <a href="{{ route('data-create-jadwal-pasangan') }}" class="btn btn-primary btn-icon-split mb-4">
+                <span class="icon text-white-50">
+                    <i class="menu-icon fa fa-plus-square"></i>
+                </span>
+                <span class="text">Create Jadwal Pernikahan</span>
+            </a>
+        @endif
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -26,6 +28,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Penghulu</th>
+                                <th>Nama Pasanagan</th>
                                 <th>Tanggal Pernikahan</th>
                                 <th>Jam Pernikahan</th>
                                 <th>Tempat</th>
@@ -38,6 +41,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->user->name }}</td>
+                                    <td><strong>Nama Pria : </strong>{{ $item->pasangan->nama_pria }} | <strong>Nama Wanita : </strong>{{$item->pasangan->nama_wanita}}</td>
                                     <td>{{ $item->tanggal_pernikahan }}</td>
                                     <td>{{ $item->jam_pernikahan }}</td>
                                     <td>{{ $item->tempat }}</td>
@@ -70,9 +74,15 @@
                                             @endif
                                         @else
                                             @if ($item->status === 'Rejected')
-                                                <a href="#" class="btn btn-success">
-                                                    <i class="fas fa-check"></i> Approve
-                                                </a>
+                                                <form action="{{ route('data-approved-jadwal-pernikahan', $item->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('post')
+                                                    <button class="btn btn-success" onclick="return confirm('Approved ?')">
+                                                        <i class="fas fa-check" ></i>
+                                                        Approved
+                                                    </button>
+                                                </form>
                                             @else
                                                 -
                                             @endif
@@ -86,7 +96,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 @endsection

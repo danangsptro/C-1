@@ -37,16 +37,19 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama_pria }}</td>
                                     <td>{{ $item->nama_wanita }}</td>
-                                    <td>{{ $item->status_pernikahan }}</td>
+                                    <td class="text-danger"><strong>{{ $item->status_pernikahan }}</strong></td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle">
+                                        <a href="{{ route('data-pasangan-edit', $item->id) }}"
+                                            class="btn btn-info btn-circle">
                                             <i class="fas fa-pen"></i>
                                         </a>
 
-                                        <form action="{{ route('data-pasangan-delete', $item->id) }}" class="d-inline" method="POST">
+                                        <form action="{{ route('data-pasangan-delete', $item->id) }}" class="d-inline"
+                                            method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn-danger btn-circle" onclick="return confirm('ANDA YAKIN INGIN MENGHAPUS ?')">
+                                            <button class="btn btn-danger btn-circle"
+                                                onclick="return confirm('ANDA YAKIN INGIN MENGHAPUS ?')">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>

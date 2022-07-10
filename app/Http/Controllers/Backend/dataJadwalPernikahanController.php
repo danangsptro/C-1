@@ -51,11 +51,21 @@ class dataJadwalPernikahanController extends Controller
         }
     }
 
+    public function approved($id)
+    {
+        $jadwal = dataJadwalPernikahan::find($id);
+        $jadwal->status = 'Approved';
+        if ($jadwal) {
+            $jadwal->save();
+            toastr()->success('Data has been Approved successfully!');
+            return redirect()->back();
+        }
+    }
+
     public function delete($id)
     {
         if (!$id) {
             toastr()->error('Data not found');
-
         } else {
             $jadwalPernikahan = dataJadwalPernikahan::where('id', $id)->first();
             if ($jadwalPernikahan) {

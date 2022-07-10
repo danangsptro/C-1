@@ -10,7 +10,8 @@ class dashboardController extends Controller
     public function index()
     {
         $pasangan = dataPasangan::all();
-        $jadwal = dataJadwalPernikahan::all();
-        return view('page.home.index', compact('pasangan', 'jadwal'));
+        $approved = dataJadwalPernikahan::whereStatus('Approved')->get();
+        $rejected = dataJadwalPernikahan::whereStatus('Rejected')->get();
+        return view('page.home.index', compact('pasangan', 'approved', 'rejected'));
     }
 }

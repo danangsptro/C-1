@@ -64,9 +64,8 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Page
+        All Data
     </div>
-    <br>
 
     <!-- Nav Item - Pages Collapse Menu -->
     {{-- <li class="nav-item">
@@ -99,27 +98,20 @@
     <!-- Nav Item - Tables -->
     @if (Auth::user()->user_role === 'pegawai')
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('data-penghulu') }}">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Data Penghulu</span></a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="{{ route('data-pasangan') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Pasangan</span></a>
         </li>
-
-
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('data-pernikahan') }}">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Data Pernikahan</span></a>
+                <span>Data Akta Pernikahan</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('data-arsip-pernikahan') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Arsip Pernikahan</span></a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('data-jadwal-pasangan') }}">
                 <i class="fas fa-fw fa-table"></i>
@@ -133,6 +125,7 @@
         </li>
     @endif
 
+
     {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
@@ -140,6 +133,19 @@
     </li> --}}
 
     <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+
+    @if (Auth::user()->user_role === 'pegawai')
+        <div class="sidebar-heading">
+            Laporan
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('laporan-pernikahan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Laporan Data Pernikahan</span></a>
+        </li>
+    @endif
     <hr class="sidebar-divider d-none d-md-block">
 
     @if (Auth::user()->user_role === 'pegawai')
