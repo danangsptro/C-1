@@ -114,8 +114,8 @@
                                     <td>{{ $q->email }}</td>
                                     <td>{{ $q->username }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle">
-                                            <i class="fas fa-info-circle"></i>
+                                        <a href="#" class="btn btn-info btn-circle" onclick="return confirm('fitur on going')">
+                                            <i class="fas fa-pen"></i>
                                         </a>
                                         <form action="{{ route('register-pegawai-delete', $q->id) }}" method="POST"
                                             class="d-inline">
