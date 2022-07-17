@@ -51,9 +51,12 @@
                                     <select class="custom-select" id="inputGroupSelect01" name="pasangan_id">
                                         <option selected>Pilih Option</option>
                                         @foreach ($pasangan as $item)
-                                            <option value="{{ $item->id }}" class="text-bold">
-                                                <strong>Pria :</strong> {{ $item->nama_pria }} - <strong>Wanita : </strong>{{$item->nama_wanita}}
-                                            </option>
+                                            @if ($item->status_pernikahan === 'Belum Menikah')
+                                                <option value="{{ $item->id }}" class="text-bold">
+                                                    <strong>Pria :</strong> {{ $item->nama_pria }} - <strong>Wanita :
+                                                    </strong>{{ $item->nama_wanita }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                     @error('pasangan_id')

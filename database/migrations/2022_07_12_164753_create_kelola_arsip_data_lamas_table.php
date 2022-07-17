@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelolaArsipsTable extends Migration
+class CreateKelolaArsipDataLamasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKelolaArsipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelola_arsips', function (Blueprint $table) {
+        Schema::create('kelola_arsip_data_lamas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateKelolaArsipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelola_arsips');
+        Schema::dropIfExists('kelola_arsip_data_lamas');
     }
 }

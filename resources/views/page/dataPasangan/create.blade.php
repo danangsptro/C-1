@@ -38,6 +38,94 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Tanggal Lahir Pria</label>
+                                <input type="date" class="form-control" name="tanggal_lahir_pria" required>
+                                @error('tanggal_lahir_pria')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Tanggal Lahir Wanita</label>
+                                <input type="date" class="form-control" name="tanggal_lahir_wanita" required>
+                                @error('tanggal_lahir_wanita')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Tempat lahir pria</label>
+                                <input type="text" class="form-control" name="tempat_lahir_pria"
+                                    placeholder="Masukan tempat lahir pria" required>
+                                @error('tempat_lahir_pria')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Tempat Lahir Wanita</label>
+                                <input type="text" class="form-control" placeholder="Masuka tempat lahir wanita"
+                                    name="tempat_lahir_wanita" required>
+                                @error('tempat_lahir_wanita')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Warga Negara pria</label>
+                                <input type="text" class="form-control" name="warga_negara_pria"
+                                    placeholder="Masukan warga negara pria" required>
+                                @error('warga_negara_pria')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Warga Negara Wanita</label>
+                                <input type="text" class="form-control" placeholder="Masukan warga negara wanita"
+                                    name="warga_negara_wanita" required>
+                                @error('warga_negara_wanita')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Agama Pria</label>
+                                <input type="text" class="form-control" name="agama_pria"
+                                    placeholder="Masukan agama pria" required>
+                                @error('agama_pria')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Agama Wanita</label>
+                                <input type="text" class="form-control" placeholder="Masukan agama wanita"
+                                    name="agama_wanita" required>
+                                @error('agama_wanita')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Binti</label>
+                                <input type="text" class="form-control" placeholder="Masukan binti/bin"
+                                    name="binti" required>
+                                @error('binti')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Status Pernikahan</label>

@@ -21,6 +21,7 @@ class CreateDataJadwalPernikahansTable extends Migration
             $table->string('jam_pernikahan');
             $table->string('tempat');
             $table->string('status');
+            $table->string('no_akta')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

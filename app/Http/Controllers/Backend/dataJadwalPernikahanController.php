@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\http\Models\dataJadwalPernikahan;
 use App\Http\Models\dataPasangan;
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class dataJadwalPernikahanController extends Controller
 {
@@ -51,15 +53,26 @@ class dataJadwalPernikahanController extends Controller
         }
     }
 
-    public function approved($id)
+    public function approved(Request $request, $id)
     {
         $jadwal = dataJadwalPernikahan::find($id);
-        $jadwal->status = 'Approved';
-        if ($jadwal) {
-            $jadwal->save();
-            toastr()->success('Data has been Approved successfully!');
-            return redirect()->back();
-        }
+        DB::transaction(function () use ($jadwal) {
+            try {
+                $noArsip = $jadwal->id;
+                $jadwal->no_akta = 'ARSPNKH' . $noArsip;
+                $jadwal->status = 'Approved';
+                $jadwal->save();
+
+                $data = dataPasangan::find($jadwal->pasangan_id);
+                $data->status_pernikahan = 'Sudah Menikah';
+                $data->save();
+            } catch (Exception $e) {
+                $e->getMessage();
+            }
+        });
+
+        toastr()->success('Data has been Approved successfully!');
+        return redirect()->back();
     }
 
     public function delete($id)

@@ -16,7 +16,16 @@ class CreateDataPasangansTable extends Migration
         Schema::create('data_pasangans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pria', 20);
+            $table->date('tanggal_lahir_pria', 20);
+            $table->string('tempat_lahir_pria', 20);
+            $table->string('warga_negara_pria', 20);
+            $table->string('agama_pria', 20);
             $table->string('nama_wanita', 20);
+            $table->date('tanggal_lahir_wanita',20);
+            $table->string('tempat_lahir_wanita',20);
+            $table->string('warga_negara_wanita', 20);
+            $table->string('agama_wanita', 20);
+            $table->string('binti', 20);
             $table->string('status_pernikahan', 20);
             $table->timestamps();
         });

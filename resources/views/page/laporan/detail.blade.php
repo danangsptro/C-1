@@ -22,6 +22,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>No Akta</th>
                                 <th>Nama Pria</th>
                                 <th>Nama Wanita</th>
                                 <th>Tanggal Pernikahan</th>
@@ -33,6 +34,7 @@
                             @foreach ($approved as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->no_akta }}</td>
                                     <td>{{ $item->pasangan->nama_pria }}</td>
                                     <td>{{ $item->pasangan->nama_wanita }}</td>
                                     <td>{{ $item->tanggal_pernikahan }}</td>

@@ -13,4 +13,5 @@ class dataPasangan extends Model
     {
         return $this->hasMany(dataJadwalPernikahan::class, 'pasangan_id', 'id');
     }
+
 }

@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>No Akta</th>
                                 <th>Nama Penghulu</th>
                                 <th>Nama Pasanagan</th>
                                 <th>Tanggal Pernikahan</th>
@@ -40,6 +41,7 @@
                             @foreach ($jadwalPernikahan as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->no_akta ? $item->no_akta : '-'}}</td>
                                     <td>{{ $item->user->name }}</td>
                                     <td><strong>Nama Pria : </strong>{{ $item->pasangan->nama_pria }} | <strong>Nama Wanita : </strong>{{$item->pasangan->nama_wanita}}</td>
                                     <td>{{ $item->tanggal_pernikahan }}</td>
