@@ -22,6 +22,7 @@ class CreateDataJadwalPernikahansTable extends Migration
             $table->string('tempat');
             $table->string('status');
             $table->string('no_akta')->nullable();
+            $table->string('status_arsip');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

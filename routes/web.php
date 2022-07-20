@@ -43,6 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
         // Kelola Arsip Baru
         Route::get('/data-kelola-arsip-baru', 'Backend\kelolaArsipDataBaruController@index')->name('KelolaArsipDataBaru');
         Route::get('/data-kelola-arsip-baru/{id}', 'Backend\kelolaArsipDataBaruController@arsip')->name('KelolaArsipDataBaruCreate');
-        Route::post('/data-kelola-arsip-store', 'Backend\kelolaArsipDataBaruController@createKelolaArsip')->name('KelolaArsipDataBaruStore');
+        Route::post('/data-kelola-arsip-store/{id}', 'Backend\kelolaArsipDataBaruController@createKelolaArsip')->name('KelolaArsipDataBaruStore');
+        // Kelola Arsip Lama
+        Route::get('/data-kelola-arsip-lama', 'Backend\kelolaArsipDataLamaController@index')->name('kelola-data-arsip-lama');
+        Route::get('/data-kelola-arsip-lama-create', 'Backend\kelolaArsipDataLamaController@create')->name('kelola-data-arsip-lama-create');
+        Route::post('/data-kelola-arsip-lama-store', 'Backend\KelolaArsipDataLamaController@createKelolaArsipLama')->name('kelola-data-arsip-lama-store');
     });
 });

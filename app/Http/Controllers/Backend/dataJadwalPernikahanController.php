@@ -35,7 +35,8 @@ class dataJadwalPernikahanController extends Controller
             'tanggal_pernikahan' => 'required|max:10',
             'jam_pernikahan' => 'required|max:10',
             'tempat' => 'required|max:30',
-            'status' => 'required|max:10'
+            'status' => 'required|max:10',
+            'status_arsip' => 'required|max:10',
         ]);
         $jadwalPernikahan = dataJadwalPernikahan::create($request->all());
         $jadwalPernikahan->user_id = $validate['user_id'];
@@ -44,6 +45,7 @@ class dataJadwalPernikahanController extends Controller
         $jadwalPernikahan->tempat = $validate['tempat'];
         $jadwalPernikahan->pasangan_id = $validate['pasangan_id'];
         $jadwalPernikahan->status = $validate['status'];
+        $jadwalPernikahan->status_arsip = $validate['status_arsip'];
         if (!$jadwalPernikahan) {
             toastr()->error('Data has been not saved');
             return redirect('/dashboard/data/jadwal-pasangan');
@@ -61,6 +63,7 @@ class dataJadwalPernikahanController extends Controller
                 $noArsip = $jadwal->id;
                 $jadwal->no_akta = 'ARSPNKH' . $noArsip;
                 $jadwal->status = 'Approved';
+                $jadwal->status_arsip = 'Data Belum di arsip';
                 $jadwal->save();
 
                 $data = dataPasangan::find($jadwal->pasangan_id);

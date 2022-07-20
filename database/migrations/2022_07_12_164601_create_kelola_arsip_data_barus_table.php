@@ -13,11 +13,11 @@ class CreateKelolaArsipDataBarusTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelola_arsip_data_barus', function (Blueprint $table) {
+        Schema::create('kelola_arsip_datas', function (Blueprint $table) {
             $table->id();
             $table->string('no_akta');
             $table->string('nama_pria');
-            $table->string('nama_Wanita');
+            $table->string('nama_wanita');
             $table->string('tanggal_lahir_pria');
             $table->string('tanggal_lahir_wanita');
             $table->string('tempat_lahir_pria');
@@ -26,7 +26,10 @@ class CreateKelolaArsipDataBarusTable extends Migration
             $table->string('warga_negara_wanita');
             $table->string('tanggal_pernikahan');
             $table->string('tempat_pernikahan');
+            $table->string('status_arsip');
             $table->string('binti');
+            $table->string('jenis_arsip');
+            $table->string('status_pernikahan');
             $table->timestamps();
         });
     }
@@ -38,6 +41,6 @@ class CreateKelolaArsipDataBarusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelola_arsip_data_barus');
+        Schema::dropIfExists('kelola_arsip_datas');
     }
 }

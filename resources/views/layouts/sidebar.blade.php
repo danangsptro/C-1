@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon ">
-            <img src="{{asset('assets/img/stok-logo-5.png')}}" width="50px" alt="">
+            <img src="{{ asset('assets/img/stok-logo-5.png') }}" width="50px" alt="">
 
         </div>
         <div class="sidebar-brand-text mx-3">Admin <sup>KUA</sup></div>
@@ -69,20 +69,22 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    {{-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Kelola Arsip</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Data Arsip :</h6>
-                <a class="collapse-item" href="{{route('KelolaArsipDataBaru')}}">Kelola Arsip Baru</a>
-                <a class="collapse-item" href="blank.html">Kelola Arsip Lama</a>
+    @if (Auth::user()->user_role === 'pegawai')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Kelola Arsip</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Data Arsip :</h6>
+                    <a class="collapse-item" href="{{ route('KelolaArsipDataBaru') }}">Kelola Arsip Baru</a>
+                    <a class="collapse-item" href="{{ route('kelola-data-arsip-lama') }}">Kelola Arsip Lama</a>
+                </div>
             </div>
-        </div>
-    </li> --}}
+        </li>
+    @endif
 
     {{-- <!-- Nav Item - Charts -->
     <li class="nav-item">
@@ -141,8 +143,8 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>Laporan Data Pernikahan</span></a>
         </li>
+        <hr class="sidebar-divider d-none d-md-block">
     @endif
-    <hr class="sidebar-divider d-none d-md-block">
 
     @if (Auth::user()->user_role === 'pegawai')
         <div class="sidebar-heading">

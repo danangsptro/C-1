@@ -97,6 +97,11 @@
                                 <input type="hidden" class="form-control" name="status" value="Rejected" required>
                             </div>
                         </div>
+                        <div class="col-lg-6 disabled">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="status_arsip" value="-" required>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="mt-4">

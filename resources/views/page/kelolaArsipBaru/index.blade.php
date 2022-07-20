@@ -26,28 +26,40 @@
                                 <th>Nama Pria</th>
                                 <th>Nama Wanita</th>
                                 <th>Tanggal Pernikahan</th>
-                                <th>Jam</th>
                                 <th>Status Pernikahan</th>
                                 <th class="text-center">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->no_akta }}</td>
-                                    <td>{{ $item->nama_pria }}</td>
-                                    <td>{{ $item->nama_wanita }}</td>
-                                    {{-- <td>{{ $item->tanggal_pernikahan }}</td>
-                                    <td>{{ $item->jam_pernikahan }}</td> --}}
-                                    <td>
-                                        <span class="badge badge-success">Sudah Menikah</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{ route('KelolaArsipDataBaruCreate', $item->id) }}"
-                                            class="btn btn-warning"> Arsip | <i class="fas fa-pen"></i></a>
-                                    </td>
-                                </tr>
+                                @if ($item->status === 'Approved')
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->no_akta }}</td>
+                                        <td>{{ $item->pasangan->nama_pria }}</td>
+                                        <td>{{ $item->pasangan->nama_wanita }}</td>
+                                        <td>{{ $item->tanggal_pernikahan }}</td>
+                                        <td>
+                                            <span class="badge badge-success">Sudah Menikah</span>
+                                        </td>
+                                        <td class="text-center">
+
+                                            @if ($item->status_arsip != 'Sudah Arsip')
+                                                <a href="{{ route('KelolaArsipDataBaruCreate', $item->id) }}"
+                                                    class="btn btn-warning"> Arsip | <i class="fas fa-pen"></i></a>
+                                            @else
+                                                <span class="text-success">
+                                                    <strong>
+                                                        <i>
+                                                            Sudah Arsip Bosq
+                                                            </i>
+                                                    </strong>
+
+                                                </span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>
