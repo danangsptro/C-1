@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                {{-- <th>img</th> --}}
                                 <th>Nama Pria</th>
                                 <th>Nama Wanita</th>
                                 <th>Status Pernikahan</th>
@@ -35,6 +36,7 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    {{-- <td><img src="{{ Storage::url($item->foto_pria) }}" alt=""></td> --}}
                                     <td>{{ $item->nama_pria }}</td>
                                     <td>{{ $item->nama_wanita }}</td>
                                     @if ($item->status_pernikahan === 'Sudah Menikah')

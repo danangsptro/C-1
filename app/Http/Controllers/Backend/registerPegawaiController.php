@@ -5,13 +5,19 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class registerPegawaiController extends Controller
 {
     public function index()
     {
-        $data = User::all();
+        $role = Auth::user()->user_role;
+
+        $q = Auth::user()->id;
+        $data = User::when($role === 'penghulu', function ($query) use($q) {
+            return $query->where('id', $q);
+        })->get();
         return view('page.register.index', compact('data'));
     }
 

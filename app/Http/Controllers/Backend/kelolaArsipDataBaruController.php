@@ -75,7 +75,7 @@ class kelolaArsipDataBaruController extends Controller
             $q->save();
         });
         toastr()->success('Data has been Arsip successfully!');
-        return redirect('dashboard/data-kelola-arsip-lama');
+        return redirect('dashboard/data-kelola-arsip-baru');
     }
 
 }

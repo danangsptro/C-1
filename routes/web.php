@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/data-laporan-pernikahan', 'Backend\laporanDataPernikahanController@index')->name('laporan-pernikahan');
         Route::get('/data-laporan-pernikahan/approved', 'Backend\laporanDataPernikahanController@approved')->name('status-pernikahan-approved');
         Route::get('/data-laporan-pernikahan/rejected', 'Backend\laporanDataPernikahanController@rejected')->name('status-pernikahan-rejected');
+        Route::get('/laporan-data-menikah', 'Backend\laporanDataPernikahanController@printDataApprove')->name('print-approve');
+        Route::get('/laporan-data-belum-menikah', 'Backend\laporanDataPernikahanController@printDataNotApprove')->name('print-approve-belum-menikah');
         // Kelola Arsip Baru
         Route::get('/data-kelola-arsip-baru', 'Backend\kelolaArsipDataBaruController@index')->name('KelolaArsipDataBaru');
         Route::get('/data-kelola-arsip-baru/{id}', 'Backend\kelolaArsipDataBaruController@arsip')->name('KelolaArsipDataBaruCreate');

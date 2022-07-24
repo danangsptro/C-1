@@ -21,7 +21,6 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>No Akta</th>
                                 <th>Nama Pria</th>
                                 <th>Nama Wanita</th>
@@ -34,7 +33,6 @@
                             @foreach ($data as $item)
                                 @if ($item->status === 'Approved')
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->no_akta }}</td>
                                         <td>{{ $item->pasangan->nama_pria }}</td>
                                         <td>{{ $item->pasangan->nama_wanita }}</td>
@@ -51,7 +49,7 @@
                                                 <span class="text-success">
                                                     <strong>
                                                         <i>
-                                                            Sudah Arsip Bosq
+                                                            Sudah Arsip Data Baru
                                                             </i>
                                                     </strong>
 

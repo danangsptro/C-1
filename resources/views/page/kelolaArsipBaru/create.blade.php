@@ -126,16 +126,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-lg-6 disabled">
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="status_arsip" value="Sudah Arsip" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 disabled">
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="jenis_arsip" value="Arsip Baru" required>
-                            </div>
-                        </div>
+
                           <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Status Pernikahan</label>
@@ -144,6 +135,16 @@
                                 @error('status_pernikahan')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6 disabled">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="status_arsip" value="Sudah Arsip" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 disabled">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="jenis_arsip" value="Arsip Baru" required>
                             </div>
                         </div>
                     </div>

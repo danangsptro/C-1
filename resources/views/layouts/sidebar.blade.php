@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
         <div class="sidebar-brand-icon ">
             <img src="{{ asset('assets/img/stok-logo-5.png') }}" width="50px" alt="">
 
@@ -146,16 +146,15 @@
         <hr class="sidebar-divider d-none d-md-block">
     @endif
 
-    @if (Auth::user()->user_role === 'pegawai')
-        <div class="sidebar-heading">
-            Register Pegawai
-        </div>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('register-pegawai') }}">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Register Akun</span></a>
-        </li>
-    @endif
+    <div class="sidebar-heading">
+        Register Pegawai
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('register-pegawai') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Register Akun</span></a>
+    </li>
+    <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

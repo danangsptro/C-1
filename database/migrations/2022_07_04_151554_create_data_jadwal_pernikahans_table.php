@@ -26,7 +26,7 @@ class CreateDataJadwalPernikahansTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('pasangan_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pasangan_id')->references('id')->on('data_pasangans')->onDelete('cascade');
         });
     }
 
