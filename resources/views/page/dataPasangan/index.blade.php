@@ -50,6 +50,50 @@
                                                 <i class="fas fa-pen"></i>
                                             </a>
 
+                                            {{-- button modal --}}
+                                            <a href="" class="btn btn-warning btn-circle" data-toggle="modal"
+                                                data-target="#exampleModal{{ $loop->iteration }}">
+                                                <i class="fas fa-info-circle"></i>
+                                            </a>
+                                            <!-- Modal -->
+                                            <div class="modal fade text-left" id="exampleModal{{ $loop->iteration }}"
+                                                tabindex="-1" aria-labelledby="exampleModalLabel{{ $loop->iteration }}"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title"
+                                                                id="exampleModalLabel{{ $loop->iteration }}">Detail Jadwal
+                                                                Produksi</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <label>Foto pria</label><br>
+                                                                    <img src="{{ Storage::url($item->foto_pria) }}"
+                                                                        width="100%" alt="wdw">
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <label>Foto Wanita</label><br>
+                                                                    <img src="{{ Storage::url($item->foto_wanita) }}"
+                                                                        width="100%" alt="wdw">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <form action="{{ route('data-pasangan-delete', $item->id) }}" class="d-inline"
                                                 method="POST">
                                                 @csrf

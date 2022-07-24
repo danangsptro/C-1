@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Foto Pasangan</th>
                                 <th>No Akta</th>
                                 <th>Nama Penghulu</th>
                                 <th>Nama Pasanagan</th>
@@ -41,9 +42,55 @@
                             @foreach ($jadwalPernikahan as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->no_akta ? $item->no_akta : '-'}}</td>
+                                    <td>
+                                        {{-- button modal --}}
+                                        <a href="" class="btn btn-info" data-toggle="modal"
+                                            data-target="#exampleModal{{ $loop->iteration }}">
+                                           Klik untuk melihat!</i>
+                                        </a>
+                                        <!-- Modal -->
+                                        <div class="modal fade text-left" id="exampleModal{{ $loop->iteration }}"
+                                            tabindex="-1" aria-labelledby="exampleModalLabel{{ $loop->iteration }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="exampleModalLabel{{ $loop->iteration }}">Detail Jadwal
+                                                            Produksi</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <label>Foto pria</label><br>
+                                                                <img src="{{ Storage::url($item->pasangan->foto_pria) }}"
+                                                                    width="100%" alt="wdw">
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <label>Foto Wanita</label><br>
+                                                                <img src="{{ Storage::url($item->pasangan->foto_wanita) }}"
+                                                                    width="100%" alt="wdw">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ $item->no_akta ? $item->no_akta : '-' }}</td>
                                     <td>{{ $item->user->name }}</td>
-                                    <td><strong>Nama Pria : </strong>{{ $item->pasangan->nama_pria }} | <strong>Nama Wanita : </strong>{{$item->pasangan->nama_wanita}}</td>
+                                    <td><strong>Nama Pria : </strong>{{ $item->pasangan->nama_pria }} | <strong>Nama Wanita
+                                            : </strong>{{ $item->pasangan->nama_wanita }}</td>
                                     <td>{{ $item->tanggal_pernikahan }}</td>
                                     <td>{{ $item->jam_pernikahan }}</td>
                                     <td>{{ $item->tempat }}</td>
@@ -81,7 +128,7 @@
                                                     @csrf
                                                     @method('post')
                                                     <button class="btn btn-success" onclick="return confirm('Approved ?')">
-                                                        <i class="fas fa-check" ></i>
+                                                        <i class="fas fa-check"></i>
                                                         Approved
                                                     </button>
                                                 </form>
