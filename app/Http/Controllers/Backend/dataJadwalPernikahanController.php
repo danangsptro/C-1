@@ -7,6 +7,7 @@ use App\http\Models\dataJadwalPernikahan;
 use App\Http\Models\dataPasangan;
 use App\User;
 use Exception;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -34,8 +35,8 @@ class dataJadwalPernikahanController extends Controller
             'pasangan_id' => 'required|max:50',
             'tanggal_pernikahan' => 'required|max:10',
             'jam_pernikahan' => 'required|max:10',
-            'tempat' => 'required|max:30',
-            'status' => 'required|max:10',
+            'tempat' => 'required|max:100',
+            'status' => 'required|max:40',
             'status_arsip' => 'required|max:10',
         ]);
         $jadwalPernikahan = dataJadwalPernikahan::create($request->all());
@@ -47,6 +48,45 @@ class dataJadwalPernikahanController extends Controller
         $jadwalPernikahan->status = $validate['status'];
         $jadwalPernikahan->status_arsip = $validate['status_arsip'];
         if (!$jadwalPernikahan) {
+            toastr()->error('Data has been not saved');
+            return redirect('/dashboard/data/jadwal-pasangan');
+        } else {
+            toastr()->success('Data has been saved successfully!');
+            return redirect('/dashboard/data/jadwal-pasangan');
+        }
+    }
+
+    public function edit($id)
+    {
+        $data = dataJadwalPernikahan::find($id);
+        $user = User::all();
+        $pasangan = dataPasangan::all();
+        return View('page.dataJadwalPernikahan.edit', compact('data', 'user', 'pasangan'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'user_id' => 'required|max:10',
+            'pasangan_id' => 'required|max:50',
+            'tanggal_pernikahan' => 'required|max:10',
+            'jam_pernikahan' => 'required|max:10',
+            'tempat' => 'required|max:100',
+            'status' => 'required|max:40',
+            'status_arsip' => 'required|max:10',
+        ]);
+
+        $id = $request->id;
+        $data = dataJadwalPernikahan::find($id);
+        $data->user_id = $validate['user_id'];
+        $data->tanggal_pernikahan = $validate['tanggal_pernikahan'];
+        $data->jam_pernikahan = $validate['jam_pernikahan'];
+        $data->tempat = $validate['tempat'];
+        $data->pasangan_id = $validate['pasangan_id'];
+        $data->status = $validate['status'];
+        $data->status_arsip = $validate['status_arsip'];
+        $data->save();
+        if (!$data) {
             toastr()->error('Data has been not saved');
             return redirect('/dashboard/data/jadwal-pasangan');
         } else {

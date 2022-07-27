@@ -17,12 +17,12 @@ class CreateDataJadwalPernikahansTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('pasangan_id')->unsigned();
-            $table->date('tanggal_pernikahan');
-            $table->string('jam_pernikahan');
-            $table->string('tempat');
-            $table->string('status');
-            $table->string('no_akta')->nullable();
-            $table->string('status_arsip');
+            $table->date('tanggal_pernikahan',20);
+            $table->string('jam_pernikahan',20);
+            $table->string('tempat',100);
+            $table->string('status',20);
+            $table->string('no_akta',30)->nullable();
+            $table->string('status_arsip',20);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

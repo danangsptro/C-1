@@ -15,21 +15,21 @@ class CreateKelolaArsipDataBarusTable extends Migration
     {
         Schema::create('kelola_arsip_datas', function (Blueprint $table) {
             $table->id();
-            $table->string('no_akta');
-            $table->string('nama_pria');
-            $table->string('nama_wanita');
-            $table->string('tanggal_lahir_pria');
-            $table->string('tanggal_lahir_wanita');
-            $table->string('tempat_lahir_pria');
-            $table->string('tempat_lahir_wanita');
-            $table->string('warga_negara_pria');
-            $table->string('warga_negara_wanita');
-            $table->string('tanggal_pernikahan');
-            $table->string('tempat_pernikahan');
-            $table->string('status_arsip');
-            $table->string('binti');
-            $table->string('jenis_arsip');
-            $table->string('status_pernikahan');
+            $table->string('no_akta',30);
+            $table->string('nama_pria',50);
+            $table->string('nama_wanita',50);
+            $table->date('tanggal_lahir_pria',20);
+            $table->date('tanggal_lahir_wanita',20);
+            $table->string('tempat_lahir_pria',20);
+            $table->string('tempat_lahir_wanita',20);
+            $table->string('warga_negara_pria',20);
+            $table->string('warga_negara_wanita',20);
+            $table->date('tanggal_pernikahan',20);
+            $table->string('tempat_pernikahan',100);
+            $table->string('status_arsip',20);
+            $table->string('binti',30);
+            $table->string('jenis_arsip',30);
+            $table->string('status_pernikahan',20);
             $table->timestamps();
         });
     }

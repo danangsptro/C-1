@@ -105,7 +105,7 @@
 
                                         @if (Auth::user()->user_role === 'pegawai')
                                             @if ($item->status === 'Rejected')
-                                                <a href="#" class="btn btn-info btn-circle">
+                                                <a href="{{route('data-edit-jadwal-pernikahan', $item->id)}}" class="btn btn-info btn-circle">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 

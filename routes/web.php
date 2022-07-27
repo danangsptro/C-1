@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/data/jadwal-pasangan', 'Backend\dataJadwalPernikahanController@index')->name('data-jadwal-pasangan');
         Route::get('/data/create-jadwal-pernikahan', 'Backend\dataJadwalPernikahanController@create')->name('data-create-jadwal-pasangan');
         Route::post('/data/store-jadwal-pernikahan', 'Backend\dataJadwalPernikahanController@store')->name('data-store-jadwal-pernikahan');
+        Route::get('/data/edit-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@edit')->name('data-edit-jadwal-pernikahan');
+        Route::post('/data/update-jadwal-pernikahan/{id}','Backend\dataJadwalPernikahanController@update')->name('data-update-jadwal-pernikahan');
         Route::post('/data/approve-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@approved')->name('data-approved-jadwal-pernikahan');
         Route::delete('/data/delete-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@delete')->name('data-delete-jadwal-pernikahan');
         // Data Pernikahan

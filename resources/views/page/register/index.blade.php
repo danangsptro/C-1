@@ -48,6 +48,7 @@
                                     <label>User Role</label>
                                     <select class="custom-select" id="inputGroupSelect01" name="user_role">
                                         <option selected>Pilih Option</option>
+                                        <option value="kepalakua">Kepala KUA</option>
                                         <option value="pegawai">Pegawai</option>
                                         <option value="penghulu">Penghulu</option>
                                     </select>
@@ -105,8 +106,11 @@
                                         @if ($q->user_role === 'pegawai')
                                             <span class="badge badge-warning">{{ $q->user_role }}
                                             </span>
-                                        @else
+                                        @elseif($q->user_role === 'penghulu')
                                             <span class="badge badge-success">{{ $q->user_role }}
+                                            </span>
+                                        @else
+                                            <span class="badge badge-info">{{ $q->user_role }}
                                             </span>
                                         @endif
                                     </td>
@@ -114,7 +118,8 @@
                                     <td>{{ $q->email }}</td>
                                     <td>{{ $q->username }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle" onclick="return confirm('fitur on going')">
+                                        <a href="#" class="btn btn-info btn-circle"
+                                            onclick="return confirm('fitur on going')">
                                             <i class="fas fa-pen"></i>
                                         </a>
                                         <form action="{{ route('register-pegawai-delete', $q->id) }}" method="POST"
