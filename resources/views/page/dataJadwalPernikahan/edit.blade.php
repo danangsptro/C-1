@@ -33,7 +33,7 @@
                                     </div>
                                     <select name="user_id" class="custom-select" id="inputGroupSelect01">
                                         @foreach ($user as $ds)
-                                            @if ($ds->user_role === 'penghulu')
+                                            @if ($ds->user_role === 'Penghulu')
                                                 <option value="{{ $ds->id }}"
                                                     {{ old('user_id') ?? $data->user_id == $ds->id ? 'selected' : '' }}>
                                                     {{ $ds->name }}

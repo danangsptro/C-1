@@ -32,6 +32,7 @@ class kelolaArsipDataLamaController extends Controller
             'tempat_lahir_wanita' => 'required|max:20',
             'warga_negara_wanita' => 'required|max:20',
             'binti' => 'required|max:20',
+            'bin' => 'required|max:20',
             'status_arsip' => 'required|max:20',
             'tanggal_pernikahan' => 'required|max:20',
             'tempat_pernikahan' => 'required|max:20',
@@ -50,6 +51,7 @@ class kelolaArsipDataLamaController extends Controller
         $data->tempat_lahir_wanita = $validate['tempat_lahir_wanita'];
         $data->warga_negara_wanita = $validate['warga_negara_wanita'];
         $data->binti = $validate['binti'];
+        $data->bin = $validate['bin'];
         $data->status_arsip = $validate['status_arsip'];
         $data->tanggal_pernikahan = $validate['tanggal_pernikahan'];
         $data->tempat_pernikahan = $validate['tempat_pernikahan'];

@@ -64,7 +64,7 @@ class laporanDataPernikahanController extends Controller
 
     public function printDataNotApprove(Request $request){
         $data = dataJadwalPernikahan::whereStatus('Rejected')->get();
-        $text = 'Laporan data sudah menikah';
+        $text = 'Laporan data belum menikah';
         $user = Auth::user()->id;
         $idUser = User::where('id', $user)->first();
 

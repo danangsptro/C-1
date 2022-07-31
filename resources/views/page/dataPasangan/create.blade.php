@@ -40,26 +40,6 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label>Foto Pria</label>
-                                <input type="file" class="form-control" name="foto_pria"
-                                    required>
-                                @error('foto_pria')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Foto Wanita</label>
-                                <input type="file" class="form-control" name="foto_wanita"
-                                    required>
-                                @error('foto_wanita')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
                                 <label>Tanggal Lahir Pria</label>
                                 <input type="date" class="form-control" name="tanggal_lahir_pria" required>
                                 @error('tanggal_lahir_pria')
@@ -136,10 +116,20 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Bin</label>
+                                <input type="text" class="form-control" placeholder="Masukan bin"
+                                    name="bin" required>
+                                @error('bin')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Binti</label>
-                                <input type="text" class="form-control" placeholder="Masukan binti/bin"
+                                <input type="text" class="form-control" placeholder="Masukan binti"
                                     name="binti" required>
                                 @error('binti')
                                     <div class="text-danger">{{ $message }}</div>

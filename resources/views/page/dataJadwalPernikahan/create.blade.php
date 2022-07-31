@@ -28,7 +28,7 @@
                                     <select class="custom-select" id="inputGroupSelect01" name="user_id">
                                         <option selected>Pilih Option</option>
                                         @foreach ($user as $item)
-                                            @if ($item->user_role === 'penghulu')
+                                            @if ($item->user_role === 'Penghulu')
                                                 <option value="{{ $item->id }}">
                                                     {{ $item->name }}
                                                 </option>

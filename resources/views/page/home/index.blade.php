@@ -2,12 +2,12 @@
 @section('title', 'Admin | Dashboard')
 
 @section('backend')
-<style>
-    .jam-container{
-        justify-content: right;
-        display: flex;
-    }
-</style>
+    <style>
+        .jam-container {
+            justify-content: right;
+            display: flex;
+        }
+    </style>
     <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -58,17 +58,13 @@
                     <br>
                     <h1 class="display-4 text-gray-800">Hallo,
                         <strong>
-                            @if (Auth::user()->user_role === 'admin')
+                            {{ Auth::user()->user_role }}
 
-                            @elseif(Auth::user()->user_role === 'pimpinan')
-                                {{ Auth::user()->name }}
-                            @else
-                                {{ Auth::user()->name }}
-                            @endif
                         </strong>
                     </h1>
                     <hr>
-                    <p class="lead text-dark">Selamat datang di <span class="text-primary"><strong>Web Aplikasi Arsip Data Pernikahan</strong></span></p>
+                    <p class="lead text-dark">Selamat datang di <span class="text-primary"><strong>Web Aplikasi Arsip Data
+                                Pernikahan</strong></span></p>
                 </div>
             </div>
 
@@ -77,16 +73,16 @@
         <br>
         <!-- Content Row -->
         <div class="row">
-            @if (Auth::user()->user_role === 'pegawai')
+            @if (Auth::user()->user_role === 'Pegawai')
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-4 mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Data Pasangan</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pasangan->count() }}</div>
+                                        Data Arip Baru</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $arsipBaru->count() }}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -95,8 +91,25 @@
                         </div>
                     </div>
                 </div>
+                     <!-- Earnings (Monthly) Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-dark shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Data Arsip Lama</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $arsipLama->count() }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-4 mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -113,7 +126,7 @@
                     </div>
                 </div>
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-4 mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -171,7 +184,7 @@
         </div>
 
         <!-- Content Row -->
-        @if (Auth::user()->user_role === 'penghulu')
+        @if (Auth::user()->user_role === 'Penghulu')
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->

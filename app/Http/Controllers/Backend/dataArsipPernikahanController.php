@@ -9,6 +9,6 @@ class dataArsipPernikahanController extends Controller
 {
     public function index()
     {
-        return view('page.dataArsipPernikahan.index');
+        return view('page.laporanArsip.index');
     }
 }

@@ -15,7 +15,7 @@ class registerPegawaiController extends Controller
         $role = Auth::user()->user_role;
 
         $q = Auth::user()->id;
-        $data = User::when($role === 'penghulu', function ($query) use($q) {
+        $data = User::when($role === 'Penghulu', function ($query) use($q) {
             return $query->where('id', $q);
         })->get();
         return view('page.register.index', compact('data'));

@@ -98,8 +98,19 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
+                                <label>Bin</label>
+                                <input type="text" class="form-control" name="bin" placeholder="Masukan nama bin"
+                                    required>
+                                @error('bin')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
                                 <label>Binti</label>
-                                <input type="text" class="form-control" name="binti" placeholder="Masukan nama binti" required>
+                                <input type="text" class="form-control" name="binti" placeholder="Masukan nama binti"
+                                    required>
                                 @error('binti')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -109,7 +120,7 @@
                             <div class="form-group">
                                 <label>Tempat Pernikahan</label>
                                 <input type="text" class="form-control" name="tempat_pernikahan"
-                                 placeholder="Masukan tempat pernikahan" required>
+                                    placeholder="Masukan tempat pernikahan" required>
                                 @error('tempat_pernikahan')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -118,8 +129,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Tanggal Pernikahan</label>
-                                <input type="date" class="form-control" name="tanggal_pernikahan"
-                                 required>
+                                <input type="date" class="form-control" name="tanggal_pernikahan" required>
                                 @error('tanggal_pernikahan')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -129,29 +139,33 @@
                             <div class="form-group">
                                 <label>Status Arsip</label>
 
-                                <input type="text" readonly class="form-control" name="status_arsip" value="Sudah Arsip" required readonly>
+                                <input type="text" readonly class="form-control" name="status_arsip" value="Sudah Arsip"
+                                    required readonly>
                             </div>
                         </div>
-                        <div class="col-lg-6 disabled">
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="status_arsip" value="Sudah Arsip" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 disabled">
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="jenis_arsip" value="Arsip Lama" required>
-                            </div>
-                        </div>
-                            <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Status Pernikahan</label>
-                                <input type="text" class="form-control" name="status_pernikahan" value="Sudah Menikah"
-                                    readonly required>
+                                <input type="text" class="form-control" name="status_pernikahan"
+                                    value="Sudah Menikah" readonly required>
                                 @error('status_pernikahan')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-lg-6 disabled">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="status_arsip" value="Sudah Arsip"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 disabled">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="jenis_arsip" value="Arsip Lama"
+                                    required>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="mt-4">

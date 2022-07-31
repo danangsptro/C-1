@@ -6,7 +6,7 @@
             <img src="{{ asset('assets/img/stok-logo-5.png') }}" width="50px" alt="">
 
         </div>
-        <div class="sidebar-brand-text mx-3">Admin <sup>KUA</sup></div>
+        <div class="sidebar-brand-text mx-3">{{ Auth::user()->user_role }} <sup>KUA</sup></div>
     </a>
 
     <!-- Divider -->
@@ -69,7 +69,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    @if (Auth::user()->user_role === 'pegawai')
+    @if (Auth::user()->user_role === 'Pegawai')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
@@ -94,7 +94,7 @@
     </li> --}}
 
     <!-- Nav Item - Tables -->
-    @if (Auth::user()->user_role === 'pegawai')
+    @if (Auth::user()->user_role === 'Pegawai')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('data-pasangan') }}">
                 <i class="fas fa-fw fa-table"></i>
@@ -115,7 +115,7 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Jadwal Pasangan</span></a>
         </li>
-    @elseif(Auth::user()->user_role === 'penghulu')
+    @elseif(Auth::user()->user_role === 'Penghulu')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('data-jadwal-pasangan') }}">
                 <i class="fas fa-fw fa-table"></i>
@@ -134,27 +134,34 @@
     <hr class="sidebar-divider d-none d-md-block">
 
 
-    @if (Auth::user()->user_role === 'pegawai')
+    @if (Auth::user()->user_role === 'Pegawai')
         <div class="sidebar-heading">
             Laporan
         </div>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('laporan-arsip') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Laporan Arsip</span></a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('laporan-pernikahan') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Laporan Data Pernikahan</span></a>
         </li>
         <hr class="sidebar-divider d-none d-md-block">
-    @endif
 
-    <div class="sidebar-heading">
-        Register Pegawai
-    </div>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('register-pegawai') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Register Akun</span></a>
-    </li>
-    <hr class="sidebar-divider d-none d-md-block">
+        <div class="sidebar-heading">
+            Register Pegawai
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register-pegawai') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Register Akun</span></a>
+        </li>
+
+        <hr class="sidebar-divider d-none d-md-block">
+    @endif
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

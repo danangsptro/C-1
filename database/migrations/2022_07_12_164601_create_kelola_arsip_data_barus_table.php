@@ -28,6 +28,7 @@ class CreateKelolaArsipDataBarusTable extends Migration
             $table->string('tempat_pernikahan',100);
             $table->string('status_arsip',20);
             $table->string('binti',30);
+            $table->string('bin',30);
             $table->string('jenis_arsip',30);
             $table->string('status_pernikahan',20);
             $table->timestamps();

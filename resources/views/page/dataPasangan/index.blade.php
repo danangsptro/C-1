@@ -63,8 +63,8 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
-                                                                id="exampleModalLabel{{ $loop->iteration }}">Detail Jadwal
-                                                                Produksi</h5>
+                                                                id="exampleModalLabel{{ $loop->iteration }}">Detail
+                                                                Pasangan</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
@@ -73,14 +73,44 @@
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="col-lg-6">
-                                                                    <label>Foto pria</label><br>
-                                                                    <img src="{{ Storage::url($item->foto_pria) }}"
-                                                                        width="100%" alt="wdw">
+                                                                    <label>Nama Pria</label><br>
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->nama_pria }}">
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <label>Foto Wanita</label><br>
-                                                                    <img src="{{ Storage::url($item->foto_wanita) }}"
-                                                                        width="100%" alt="wdw">
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->nama_wanita }}">
+                                                                </div>
+                                                                <div class="col-lg-6 mt-2">
+                                                                    <label>Tanggal Lahir Pria</label><br>
+                                                                    <input class="form-control" name="tanggal_lahir_pria"
+                                                                        required disabled value="{{ $item->tanggal_lahir_pria }}">
+                                                                </div>
+                                                                <div class="col-lg-6 mt-2">
+                                                                    <label>Tanggal Lahir Wanita</label><br>
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->tanggal_lahir_wanita }}">
+                                                                </div>
+                                                                <div class="col-lg-6 mt-2">
+                                                                    <label>Agama Pria</label><br>
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->agama_pria }}">
+                                                                </div>
+                                                                <div class="col-lg-6 mt-2">
+                                                                    <label>Agama Wanita</label><br>
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->agama_wanita }}">
+                                                                </div>
+                                                                <div class="col-lg-6 mt-2">
+                                                                    <label>Bin</label><br>
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->bin }}">
+                                                                </div>
+                                                                <div class="col-lg-6 mt-2">
+                                                                    <label>Binti</label><br>
+                                                                    <input class="form-control"
+                                                                        required disabled value="{{ $item->binti }}">
                                                                 </div>
                                                             </div>
 

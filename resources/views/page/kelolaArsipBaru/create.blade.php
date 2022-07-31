@@ -98,6 +98,15 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
+                                <label>Bin</label>
+                                <input type="text" class="form-control" name="bin" value="{{$data->pasangan->bin}}"
+                                    readonly required>
+                                @error('bin')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>      <div class="col-lg-6">
+                            <div class="form-group">
                                 <label>Binti</label>
                                 <input type="text" class="form-control" name="binti" value="{{$data->pasangan->binti}}"
                                     readonly required>

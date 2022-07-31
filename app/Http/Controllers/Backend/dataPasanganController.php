@@ -28,16 +28,15 @@ class dataPasanganController extends Controller
             'tempat_lahir_pria' => 'required|max:20',
             'warga_negara_pria' => 'required|max:20',
             'agama_pria' => 'required|max:20',
-            'foto_pria' => 'required|mimes:png,jpeg,jpg',
             // wanita
             'nama_wanita' => 'required|max:20',
             'tanggal_lahir_wanita' => 'required|max:20',
             'tempat_lahir_wanita' => 'required|max:20',
             'warga_negara_wanita' => 'required|max:20',
             'agama_wanita' => 'required|max:20',
-            'foto_wanita' => 'required|mimes:png,jpeg,jpg',
             // laporan
             'binti' => 'required|max:20',
+            'bin' => 'required|max:20',
             'status_pernikahan' => 'required|max:20',
         ]);
 
@@ -48,26 +47,15 @@ class dataPasanganController extends Controller
         $data->tempat_lahir_pria = $validate['tempat_lahir_pria'];
         $data->warga_negara_pria = $validate['warga_negara_pria'];
         $data->agama_pria = $validate['agama_pria'];
-        if(!$request->foto_pria) {
-            $data->foto_pria = $data->foto_pria;
-        } else {
-            $validasiData['foto_pria'] = $request->file('foto_pria')->store('asset/file-foto', 'public');
-            $data->foto_pria = $validasiData['foto_pria'];
-        }
         // wanita
         $data->nama_wanita = $validate['nama_wanita'];
         $data->tanggal_lahir_wanita = $validate['tanggal_lahir_wanita'];
         $data->tempat_lahir_wanita = $validate['tempat_lahir_wanita'];
         $data->warga_negara_wanita = $validate['warga_negara_wanita'];
         $data->agama_wanita = $validate['agama_wanita'];
-        if(!$request->foto_wanita) {
-            $data->foto_wanita = $data->foto_wanita;
-        } else {
-            $validasiData['foto_wanita'] = $request->file('foto_wanita')->store('asset/file-foto','public');
-            $data->foto_wanita = $validasiData['foto_wanita'];
-        }
         // status
         $data->binti = $validate['binti'];
+        $data->bin = $validate['bin'];
         $data->status_pernikahan = $validate['status_pernikahan'];
         $data->save();
         if (!$data) {
@@ -88,15 +76,41 @@ class dataPasanganController extends Controller
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
+            // pria
             'nama_pria' => 'required|max:20',
+            'tanggal_lahir_pria' => 'required|max:20',
+            'tempat_lahir_pria' => 'required|max:20',
+            'warga_negara_pria' => 'required|max:20',
+            'agama_pria' => 'required|max:20',
+            // wanita
             'nama_wanita' => 'required|max:20',
+            'tanggal_lahir_wanita' => 'required|max:20',
+            'tempat_lahir_wanita' => 'required|max:20',
+            'warga_negara_wanita' => 'required|max:20',
+            'agama_wanita' => 'required|max:20',
+            // laporan
+            'binti' => 'required|max:20',
+            'bin' => 'required|max:20',
             'status_pernikahan' => 'required|max:20',
         ]);
 
         $id = $request->id;
         $update = dataPasangan::find($id);
+        // pria
         $update->nama_pria = $validate['nama_pria'];
+        $update->tanggal_lahir_pria = $validate['tanggal_lahir_pria'];
+        $update->tempat_lahir_pria = $validate['tempat_lahir_pria'];
+        $update->warga_negara_pria = $validate['warga_negara_pria'];
+        $update->agama_pria = $validate['agama_pria'];
+        // wanita
         $update->nama_wanita = $validate['nama_wanita'];
+        $update->tanggal_lahir_wanita = $validate['tanggal_lahir_wanita'];
+        $update->tempat_lahir_wanita = $validate['tempat_lahir_wanita'];
+        $update->warga_negara_wanita = $validate['warga_negara_wanita'];
+        $update->agama_wanita = $validate['agama_wanita'];
+        // status
+        $update->binti = $validate['binti'];
+        $update->bin = $validate['bin'];
         $update->status_pernikahan = $validate['status_pernikahan'];
         $update->save();
 

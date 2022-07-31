@@ -48,9 +48,9 @@
                                     <label>User Role</label>
                                     <select class="custom-select" id="inputGroupSelect01" name="user_role">
                                         <option selected>Pilih Option</option>
-                                        <option value="kepalakua">Kepala KUA</option>
-                                        <option value="pegawai">Pegawai</option>
-                                        <option value="penghulu">Penghulu</option>
+                                        <option value="Kepala-KUA">Kepala KUA</option>
+                                        <option value="Pegawai">Pegawai</option>
+                                        <option value="Penghulu">Penghulu</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-lg-6">
@@ -103,10 +103,10 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        @if ($q->user_role === 'pegawai')
+                                        @if ($q->user_role === 'Pegawai')
                                             <span class="badge badge-warning">{{ $q->user_role }}
                                             </span>
-                                        @elseif($q->user_role === 'penghulu')
+                                        @elseif($q->user_role === 'Penghulu')
                                             <span class="badge badge-success">{{ $q->user_role }}
                                             </span>
                                         @else
