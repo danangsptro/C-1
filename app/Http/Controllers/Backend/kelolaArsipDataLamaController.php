@@ -35,7 +35,7 @@ class kelolaArsipDataLamaController extends Controller
             'bin' => 'required|max:20',
             'status_arsip' => 'required|max:20',
             'tanggal_pernikahan' => 'required|max:20',
-            'tempat_pernikahan' => 'required|max:20',
+            'tempat_pernikahan' => 'required|max:100',
             'jenis_arsip' => 'required|max:20',
             'status_pernikahan' => 'required|max:20',
         ]);
