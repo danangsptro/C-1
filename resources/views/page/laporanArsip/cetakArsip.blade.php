@@ -54,11 +54,7 @@
                     <td>{{ $item->nama_pria }}</td>
                     <td>{{ $item->nama_wanita }}</td>
                     <td>{{ $item->tanggal_pernikahan }}</td>
-                    @if ($item->status === 'Approved')
-                        <td>Sudah Menikah</td>
-                    @else
-                        <td>Belum Menikah</td>
-                    @endif
+                    <td>{{ $item->status_pernikahan }}</td>
                 </tr>
             @empty
                 <tr>
