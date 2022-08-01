@@ -134,7 +134,7 @@
     <hr class="sidebar-divider d-none d-md-block">
 
 
-    @if (Auth::user()->user_role === 'Pegawai')
+    @if (Auth::user()->user_role === 'Pegawai' || Auth::user()->user_role === 'Kepala-KUA')
         <div class="sidebar-heading">
             Laporan
         </div>
@@ -150,7 +150,9 @@
                 <span>Laporan Data Pernikahan</span></a>
         </li>
         <hr class="sidebar-divider d-none d-md-block">
+    @endif
 
+    @if (Auth::user()->user_role === 'Pegawai')
         <div class="sidebar-heading">
             Register Pegawai
         </div>
