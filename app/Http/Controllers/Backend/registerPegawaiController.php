@@ -15,26 +15,68 @@ class registerPegawaiController extends Controller
         $role = Auth::user()->user_role;
 
         $q = Auth::user()->id;
-        $data = User::when($role === 'Penghulu', function ($query) use($q) {
+        $data = User::when($role === 'Penghulu', function ($query) use ($q) {
             return $query->where('id', $q);
         })->get();
         return view('page.register.index', compact('data'));
     }
 
-    public function store(Request $request)
+    // public function store(Request $request)
+    // {
+    //     $user = new User();
+    //     $user->name = $request->name;
+    //     $user->email = $request->email;
+    //     $user->username = $request->username;
+    //     $user->user_role = $request->user_role;
+    //     $user->password = Hash::make($request->password);
+
+    //     $user->save();
+
+    //     if ($user) {
+    //         toastr()->success('Data has been saved successfully!');
+    //         return redirect()->back();
+    //     }
+    // }
+
+    public function store(Request $request, $id = null)
     {
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->username = $request->username;
-        $user->user_role = $request->user_role;
-        $user->password = Hash::make($request->password);
+        try {
+            if ($id) {
+                $user = User::where('id', $id)->with([])->first();
+                if (!$user) {
+                    toastr()->success('Data has been saved successfully!');
+                    return redirect()->back();
+                }
+                $user->name = $request->name;
+                $user->user_role = $request->user_role;
+                $user->username = $request->username;
+                $user->email = $request->email;
+                $user->password = Hash::make($request->password);
+                // dd($user);
+                $user->save();
+                if ($user) {
+                    toastr()->success('Data has been edit successfully!');
+                    return redirect()->back();
+                }
+            }
 
-        $user->save();
+            $user = new User();
+            $user->name = $request->name;
+            $user->user_role = $request->user_role;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->password = Hash::make('qwerty');
+            $user->save();
 
-        if ($user) {
-            toastr()->success('Data has been saved successfully!');
+            if ($user) {
+                toastr()->success('Data has been saved successfully!');
+                return redirect()->back();
+            }
+        } catch (\Throwable $th) {
+            $message = $th->getMessage();
             return redirect()->back();
+            toastr()->error($message);
+
         }
     }
 
@@ -50,5 +92,42 @@ class registerPegawaiController extends Controller
                 return redirect()->back();
             }
         }
+    }
+
+    public function profile()
+    {
+        $data = Auth::user();
+        return view('page.register.profile', compact('data'));
+    }
+
+    public function editProfile(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|min:3',
+            'username' => 'required|min:2',
+            'email' => 'required|min:1',
+        ]);
+        $input = $request->all();
+        $data = user::find($id);
+        $data->update($input);
+
+        toastr()->success('Selamat! Data Profile berhasil diperbaharui.');
+        return redirect()->back();
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|min:2',
+            'confirm_password' => 'required|min:2|same:password'
+        ]);
+
+        $data = User::find($id);
+        $data->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        toastr()->success('Selamat! Password berhasil diperbaharui.');
+        return redirect()->back();
     }
 }

@@ -124,12 +124,6 @@
     @endif
 
 
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Laporan Pernikahan</span></a>
-    </li> --}}
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
@@ -165,6 +159,15 @@
         <hr class="sidebar-divider d-none d-md-block">
     @endif
 
+    <div class="sidebar-heading">
+        Profile
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('profile')}}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span></a>
+    </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

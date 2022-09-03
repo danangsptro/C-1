@@ -43,7 +43,7 @@
                                         <td class="text-success"><strong>{{ $item->status_pernikahan }}</strong></td>
                                         <td class="text-center"><strong>-</strong></td>
                                     @else
-                                        <td class="text-danger"><strong>{{ $item->status_pernikahan }}</strong></td>
+                                        <td class="text-danger"><stro   ng>{{ $item->status_pernikahan }}</strong></td>
                                         <td class="text-center">
                                             <a href="{{ route('data-pasangan-edit', $item->id) }}"
                                                 class="btn btn-info btn-circle">

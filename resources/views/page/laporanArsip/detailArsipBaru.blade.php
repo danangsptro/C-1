@@ -40,7 +40,7 @@
                 <div class="col-lg-4">
                     <button class="btn btn-success" type="submit">Search</button>
                     @if (Request::get('start') and Request::get('end'))
-                        <a href="{{ route('detail-arsip-lama') }}" type="submit" class="btn btn-danger"
+                        <a href="{{ route('detail-arsip-baru') }}" type="submit" class="btn btn-danger"
                             style="margin-left: 0.5em">Clear filter</a>
                     @endif
                 </div>

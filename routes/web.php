@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/data/create-jadwal-pernikahan', 'Backend\dataJadwalPernikahanController@create')->name('data-create-jadwal-pasangan');
         Route::post('/data/store-jadwal-pernikahan', 'Backend\dataJadwalPernikahanController@store')->name('data-store-jadwal-pernikahan');
         Route::get('/data/edit-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@edit')->name('data-edit-jadwal-pernikahan');
-        Route::post('/data/update-jadwal-pernikahan/{id}','Backend\dataJadwalPernikahanController@update')->name('data-update-jadwal-pernikahan');
+        Route::post('/data/update-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@update')->name('data-update-jadwal-pernikahan');
         Route::post('/data/approve-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@approved')->name('data-approved-jadwal-pernikahan');
         Route::delete('/data/delete-jadwal-pernikahan/{id}', 'Backend\dataJadwalPernikahanController@delete')->name('data-delete-jadwal-pernikahan');
         // Data Pernikahan
@@ -37,7 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
         // Register Pegawai
         Route::get('register-pegawai', 'Backend\registerPegawaiController@index')->name('register-pegawai');
         Route::delete('register-pegawai-delete/{id}', 'Backend\registerPegawaiController@delete')->name('register-pegawai-delete');
-        Route::post('register-pegawai-store', 'Backend\registerPegawaiController@store')->name('register-pegawai-store');
+        Route::post('register-pegawai-store/{id?}', 'Backend\registerPegawaiController@store')->name('register-pegawai-store');
+        Route::get('profile', 'Backend\registerPegawaiController@profile')->name('profile');
+        Route::post('/edit-profile/{id}', 'Backend\registerPegawaiController@editProfile')->name('edit-profile');
+        Route::post('/update-password/{id}', 'Backend\registerPegawaiController@updatePassword')->name('update-password');
         // Laporan Pernikahan
         Route::get('/data-laporan-pernikahan', 'Backend\laporanDataPernikahanController@index')->name('laporan-pernikahan');
         Route::get('/data-laporan-pernikahan/approved', 'Backend\laporanDataPernikahanController@approved')->name('status-pernikahan-approved');
