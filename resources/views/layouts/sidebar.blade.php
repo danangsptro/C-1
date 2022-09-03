@@ -6,7 +6,7 @@
             <img src="{{ asset('assets/img/stok-logo-5.png') }}" width="50px" alt="">
 
         </div>
-        <div class="sidebar-brand-text mx-3">{{ Auth::user()->user_role }} <sup>KUA</sup></div>
+        <div class="sidebar-brand-text mx-3">{{ Auth::user()->user_role }} <sup></sup></div>
     </a>
 
     <!-- Divider -->
