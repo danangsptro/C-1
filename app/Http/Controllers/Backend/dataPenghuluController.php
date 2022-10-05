@@ -9,6 +9,6 @@ class dataPenghuluController extends Controller
 {
     public function index()
     {
-        return view('page.dataPenghulu.index');
+        return view('page.dataPenghulu.index') ;
     }
 }
