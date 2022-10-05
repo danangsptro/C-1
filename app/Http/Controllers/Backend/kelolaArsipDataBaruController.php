@@ -73,6 +73,7 @@ class kelolaArsipDataBaruController extends Controller
             $data->save();
 
             $q = dataJadwalPernikahan::find($arsiq->id);
+            $q->no_akta = $data->no_akta;
             $q->status_arsip = 'Sudah Arsip';
             $q->save();
         });

@@ -61,5 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/detail-arsip-lama', 'Backend\laporanArsipController@arsipLama')->name('detail-arsip-lama');
         Route::get('/print-laporan-arsip-baru', 'Backend\laporanArsipController@printKelolaArsipBaru')->name('print-kelola-arsip-baru');
         Route::get('/print-laporan-arsip-lama', 'Backend\laporanArsipController@printKelolaArsipLama')->name('print-kelola-arsip-lama');
+        Route::get('/edit-laporan/{id}', 'Backend\laporanArsipController@editKelolaArsip')->name('edit-laporan-arsip');
+        Route::post('/update-data-laporan/{id}', 'Backend\laporanArsipController@update')->name('update-data-laporan');
     });
 });

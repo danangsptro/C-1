@@ -100,8 +100,7 @@ class dataJadwalPernikahanController extends Controller
         $jadwal = dataJadwalPernikahan::find($id);
         DB::transaction(function () use ($jadwal) {
             try {
-                $noArsip = $jadwal->id;
-                $jadwal->no_akta = 'ARSPNKH' . $noArsip;
+                $jadwal->no_akta = '-';
                 $jadwal->status = 'Approved';
                 $jadwal->status_arsip = 'Data Belum di arsip';
                 $jadwal->save();
