@@ -27,7 +27,9 @@
                                 <th>No</th>
                                 {{-- <th>img</th> --}}
                                 <th>Nama Pria</th>
+                                <th>Dokumen Pendukung Pria</th>
                                 <th>Nama Wanita</th>
+                                <th>Dokumen Pendukung Wanita</th>
                                 <th>Status Pernikahan</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -38,12 +40,28 @@
                                     <td>{{ $loop->iteration }}</td>
                                     {{-- <td><img src="{{ Storage::url($item->foto_pria) }}" alt=""></td> --}}
                                     <td>{{ $item->nama_pria }}</td>
+                                    <td class="text-center">
+                                        @if ($item->dokumen_pendukung_pria)
+                                            <a href="{{ Storage::url($item->dokumen_pendukung_pria) }}" target="_blank">
+                                                <img width="50" height="50" border="0" align="center"
+                                                    src="{{ Storage::url($item->dokumen_pendukung_pria) ? asset('assets/img/logodoc.png') : asset('assets/img/logodoc.png') }}" />
+                                            </a>
+                                        @endif
+                                    </td>
                                     <td>{{ $item->nama_wanita }}</td>
+                                    <td class="text-center">
+                                        @if ($item->dokumen_pendukung_wanita)
+                                            <a href="{{ Storage::url($item->dokumen_pendukung_wanita) }}" target="_blank">
+                                                <img width="50" height="50" border="0" align="center"
+                                                    src="{{ Storage::url($item->dokumen_pendukung_wanita) ? asset('assets/img/logodoc.png') : asset('assets/img/logodoc.png') }}" />
+                                            </a>
+                                        @endif
+                                    </td>
                                     @if ($item->status_pernikahan === 'Sudah Menikah')
                                         <td class="text-success"><strong>{{ $item->status_pernikahan }}</strong></td>
                                         <td class="text-center"><strong>-</strong></td>
                                     @else
-                                        <td class="text-danger"><stro   ng>{{ $item->status_pernikahan }}</strong></td>
+                                        <td class="text-danger"><strong>{{ $item->status_pernikahan }}</strong></td>
                                         <td class="text-center">
                                             <a href="{{ route('data-pasangan-edit', $item->id) }}"
                                                 class="btn btn-info btn-circle">
@@ -74,43 +92,44 @@
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <label>Nama Pria</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->nama_pria }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->nama_pria }}">
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <label>Foto Wanita</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->nama_wanita }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->nama_wanita }}">
                                                                 </div>
                                                                 <div class="col-lg-6 mt-2">
                                                                     <label>Tanggal Lahir Pria</label><br>
                                                                     <input class="form-control" name="tanggal_lahir_pria"
-                                                                        required disabled value="{{ $item->tanggal_lahir_pria }}">
+                                                                        required disabled
+                                                                        value="{{ $item->tanggal_lahir_pria }}">
                                                                 </div>
                                                                 <div class="col-lg-6 mt-2">
                                                                     <label>Tanggal Lahir Wanita</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->tanggal_lahir_wanita }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->tanggal_lahir_wanita }}">
                                                                 </div>
                                                                 <div class="col-lg-6 mt-2">
                                                                     <label>Agama Pria</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->agama_pria }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->agama_pria }}">
                                                                 </div>
                                                                 <div class="col-lg-6 mt-2">
                                                                     <label>Agama Wanita</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->agama_wanita }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->agama_wanita }}">
                                                                 </div>
                                                                 <div class="col-lg-6 mt-2">
                                                                     <label>Bin</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->bin }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->bin }}">
                                                                 </div>
                                                                 <div class="col-lg-6 mt-2">
                                                                     <label>Binti</label><br>
-                                                                    <input class="form-control"
-                                                                        required disabled value="{{ $item->binti }}">
+                                                                    <input class="form-control" required disabled
+                                                                        value="{{ $item->binti }}">
                                                                 </div>
                                                             </div>
 

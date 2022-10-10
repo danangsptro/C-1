@@ -64,6 +64,7 @@
                                 <th>Nama Wanita</th>
                                 <th>Tanggal Nikah</th>
                                 <th>Status Pernikahan</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,6 +77,14 @@
                                     <td>{{ $item->tanggal_pernikahan }}</td>
                                     <td>
                                         <span class="badge badge-success">Sudah Menikah</span>
+                                    </td>
+                                    <td>
+                                        @if (Auth::user()->user_role === 'Pegawai')
+                                            <a href="{{ route('edit-laporan-arsip', $item->id) }}"
+                                                class="btn btn-warning btn-sm">Edit Arsip</a>
+                                        @else
+                                            -
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

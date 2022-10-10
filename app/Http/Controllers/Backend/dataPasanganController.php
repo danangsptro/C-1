@@ -38,6 +38,9 @@ class dataPasanganController extends Controller
             'binti' => 'required|max:20',
             'bin' => 'required|max:20',
             'status_pernikahan' => 'required|max:20',
+            'dokumen_pendukung_pria' => 'required|mimes:pdf',
+            'dokumen_pendukung_wanita' => 'required|mimes:pdf',
+
         ]);
 
         $data = new dataPasangan();
@@ -47,6 +50,12 @@ class dataPasanganController extends Controller
         $data->tempat_lahir_pria = $validate['tempat_lahir_pria'];
         $data->warga_negara_pria = $validate['warga_negara_pria'];
         $data->agama_pria = $validate['agama_pria'];
+        if (!$request->dokumen_pendukung_pria) {
+            $data->dokumen_pendukung_pria = $data->dokumen_pendukung_pria;
+        } else {
+            $validasiData['dokumen_pendukung_pria'] = $request->file('dokumen_pendukung_pria')->store('asset/dokumen_pendukung_pria', 'public');
+            $data->dokumen_pendukung_pria = $validasiData['dokumen_pendukung_pria'];
+        }
         // wanita
         $data->nama_wanita = $validate['nama_wanita'];
         $data->tanggal_lahir_wanita = $validate['tanggal_lahir_wanita'];
@@ -57,6 +66,12 @@ class dataPasanganController extends Controller
         $data->binti = $validate['binti'];
         $data->bin = $validate['bin'];
         $data->status_pernikahan = $validate['status_pernikahan'];
+        if (!$request->dokumen_pendukung_wanita) {
+            $data->dokumen_pendukung_wanita = $data->dokumen_pendukung_wanita;
+        } else {
+            $validasiData['dokumen_pendukung_wanita'] = $request->file('dokumen_pendukung_wanita')->store('asset/dokumen_pendukung_wanita', 'public');
+            $data->dokumen_pendukung_wanita = $validasiData['dokumen_pendukung_wanita'];
+        }
         $data->save();
         if (!$data) {
             toastr()->error('Data has been not saved');

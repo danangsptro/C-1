@@ -34,15 +34,30 @@ class dataJadwalPernikahanController extends Controller
             'user_id' => 'required|max:10',
             'pasangan_id' => 'required|max:50',
             'tanggal_pernikahan' => 'required|max:10',
-            'jam_pernikahan' => 'required|max:10',
+            'jam_mulai' => 'required|max:10',
+            'jam_selesai' => 'required|max:10',
             'tempat' => 'required|max:100',
             'status' => 'required|max:40',
             'status_arsip' => 'required|max:10',
         ]);
+        $check = dataJadwalPernikahan::where('user_id', $request->user_id)
+            ->where('tanggal_pernikahan', [$request->tanggal_pernikahan])
+            ->whereBetween('jam_mulai', [$request->jam_mulai, $request->jam_selesai])->count();
+
+        $check1 = dataJadwalPernikahan::where('user_id', $request->user_id)
+            ->where('tanggal_pernikahan', [$request->tanggal_pernikahan])
+            ->whereBetween('jam_selesai', [$request->jam_mulai, $request->jam_selesai])->count();
+
+        if ($check != 0 || $check1 != 0) {
+            toastr()->error('Jadwal Bentrok');
+            return redirect('/dashboard/data/jadwal-pasangan');
+        }
+
         $jadwalPernikahan = dataJadwalPernikahan::create($request->all());
         $jadwalPernikahan->user_id = $validate['user_id'];
         $jadwalPernikahan->tanggal_pernikahan = $validate['tanggal_pernikahan'];
-        $jadwalPernikahan->jam_pernikahan = $validate['jam_pernikahan'];
+        $jadwalPernikahan->jam_mulai = $validate['jam_mulai'];
+        $jadwalPernikahan->jam_selesai = $validate['jam_selesai'];
         $jadwalPernikahan->tempat = $validate['tempat'];
         $jadwalPernikahan->pasangan_id = $validate['pasangan_id'];
         $jadwalPernikahan->status = $validate['status'];
@@ -70,7 +85,8 @@ class dataJadwalPernikahanController extends Controller
             'user_id' => 'required|max:10',
             'pasangan_id' => 'required|max:50',
             'tanggal_pernikahan' => 'required|max:10',
-            'jam_pernikahan' => 'required|max:10',
+            'jam_mulai' => 'required|max:10',
+            'jam_selesai' => 'required|max:10',
             'tempat' => 'required|max:100',
             'status' => 'required|max:40',
             'status_arsip' => 'required|max:10',
@@ -80,7 +96,8 @@ class dataJadwalPernikahanController extends Controller
         $data = dataJadwalPernikahan::find($id);
         $data->user_id = $validate['user_id'];
         $data->tanggal_pernikahan = $validate['tanggal_pernikahan'];
-        $data->jam_pernikahan = $validate['jam_pernikahan'];
+        $data->jam_mulai = $validate['jam_mulai'];
+        $data->jam_selesai = $validate['jam_selesai'];
         $data->tempat = $validate['tempat'];
         $data->pasangan_id = $validate['pasangan_id'];
         $data->status = $validate['status'];

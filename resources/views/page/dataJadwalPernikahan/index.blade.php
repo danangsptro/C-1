@@ -31,7 +31,8 @@
                                 <th>Nama Penghulu</th>
                                 <th>Nama Pasanagan</th>
                                 <th>Tanggal Pernikahan</th>
-                                <th>Jam Pernikahan</th>
+                                <th>Jam Mulai</th>
+                                <th>Jam Selesai</th>
                                 <th>Tempat</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Action</th>
@@ -46,7 +47,8 @@
                                     <td><strong>Nama Pria : </strong>{{ $item->pasangan->nama_pria }} | <strong>Nama Wanita
                                             : </strong>{{ $item->pasangan->nama_wanita }}</td>
                                     <td>{{ $item->tanggal_pernikahan }}</td>
-                                    <td>{{ $item->jam_pernikahan }}</td>
+                                    <td>{{ $item->jam_mulai }}</td>
+                                    <td>{{ $item->jam_selesai }}</td>
                                     <td>{{ $item->tempat }}</td>
                                     <td class=" text-center">
                                         @if ($item->status === 'Rejected')

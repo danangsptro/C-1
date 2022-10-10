@@ -28,6 +28,8 @@ class CreateDataPasangansTable extends Migration
             $table->string('binti', 20);
             $table->string('bin', 20);
             $table->string('status_pernikahan', 20);
+            $table->text('dokumen_pendukung_pria');
+            $table->text('dokumen_pendukung_wanita');
             $table->timestamps();
         });
     }

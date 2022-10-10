@@ -18,7 +18,8 @@ class CreateDataJadwalPernikahansTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('pasangan_id')->unsigned();
             $table->date('tanggal_pernikahan',20);
-            $table->string('jam_pernikahan',20);
+            $table->string('jam_mulai',20);
+            $table->string('jam_selesai',20);
             $table->string('tempat',100);
             $table->string('status',20);
             $table->string('no_akta',30)->nullable();

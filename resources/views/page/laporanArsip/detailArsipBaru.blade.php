@@ -79,8 +79,12 @@
                                         <span class="badge badge-success">Sudah Menikah</span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit-laporan-arsip', $item->id) }}"
-                                            class="btn btn-warning btn-sm">Edit Arsip</a>
+                                        @if (Auth::user()->user_role === 'Pegawai')
+                                            <a href="{{ route('edit-laporan-arsip', $item->id) }}"
+                                                class="btn btn-warning btn-sm">Edit Arsip</a>
+                                        @else
+                                            -
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

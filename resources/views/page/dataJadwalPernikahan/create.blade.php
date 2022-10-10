@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Tanggal Pernikahan</label>
                                 <input type="date" class="form-control" name="tanggal_pernikahan" required>
@@ -76,9 +76,18 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label>Jam Pernikahan</label>
-                                <input type="time" class="form-control" name="jam_pernikahan" required>
-                                @error('jam_pernikahan')
+                                <label>Jam Mulai</label>
+                                <input type="time" class="form-control" name="jam_mulai" required>
+                                @error('jam_mulai')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Jam Selesai</label>
+                                <input type="time" class="form-control" name="jam_selesai" required>
+                                @error('jam_selesai')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
