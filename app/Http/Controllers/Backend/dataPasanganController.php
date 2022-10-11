@@ -38,8 +38,8 @@ class dataPasanganController extends Controller
             'binti' => 'required|max:20',
             'bin' => 'required|max:20',
             'status_pernikahan' => 'required|max:20',
-            'dokumen_pendukung_pria' => 'required|mimes:pdf',
-            'dokumen_pendukung_wanita' => 'required|mimes:pdf',
+            'dokumen_pendukung_pria' => 'required|mimes:pdf|max:2048',
+            'dokumen_pendukung_wanita' => 'required|mimes:pdf|max:2048',
 
         ]);
 
