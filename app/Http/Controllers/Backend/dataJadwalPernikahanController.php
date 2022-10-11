@@ -91,7 +91,18 @@ class dataJadwalPernikahanController extends Controller
             'status' => 'required|max:40',
             'status_arsip' => 'required|max:10',
         ]);
+        $check = dataJadwalPernikahan::where('user_id', $request->user_id)
+            ->where('tanggal_pernikahan', [$request->tanggal_pernikahan])
+            ->whereBetween('jam_mulai', [$request->jam_mulai, $request->jam_selesai])->count();
 
+        $check1 = dataJadwalPernikahan::where('user_id', $request->user_id)
+            ->where('tanggal_pernikahan', [$request->tanggal_pernikahan])
+            ->whereBetween('jam_selesai', [$request->jam_mulai, $request->jam_selesai])->count();
+
+        if ($check != 0 || $check1 != 0) {
+            toastr()->error('Jadwal Bentrok');
+            return redirect('/dashboard/data/jadwal-pasangan');
+        }
         $id = $request->id;
         $data = dataJadwalPernikahan::find($id);
         $data->user_id = $validate['user_id'];
